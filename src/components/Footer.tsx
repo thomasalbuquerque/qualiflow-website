@@ -50,12 +50,18 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="font-heading text-lg font-bold text-white">Contato</h2>
-          <ul className="mt-4 space-y-3">
-            <li className="flex items-center gap-3">
-              <PhoneIcon className="size-5 shrink-0" />
-              <a href={site.phone.href} className={linkClass}>
-                {site.phone.display}
+          <h2 className='font-heading text-lg font-bold text-white'>Contato</h2>
+          <ul className='mt-4 space-y-3'>
+            <li className='flex items-center gap-3'>
+              <PhoneIcon className='size-5 shrink-0' />
+              <a href={site.phone1.href} className={linkClass}>
+                {site.phone1.display}
+              </a>
+            </li>
+            <li className='flex items-center gap-3'>
+              <PhoneIcon className='size-5 shrink-0' />
+              <a href={site.phone2.href} className={linkClass}>
+                {site.phone2.display}
               </a>
             </li>
             <li className="flex items-center gap-3">

@@ -9,10 +9,14 @@ export const site = {
   url: "https://qualiflow.com.br",
   // ⚠️ No original estava "acessoria"; corrigido para "assessoria".
   description:
-    "Soluções para análise de água, e tratamento de água e esgoto. Serviços de construção e manutenção de estações de tratamento de água e de esgoto, e consultoria e assessoria em saneamento e abastecimento de água.",
-  phone: {
-    display: "(12) 99669-2001",
-    href: "tel:+5512996692001",
+    'Soluções para análise de água, e tratamento de água e esgoto. Serviços de construção e manutenção de estações de tratamento de água e de esgoto, e consultoria e assessoria em saneamento e abastecimento de água.',
+  phone1: {
+    display: '(12) 98285-8917',
+    href: 'tel:+5512982858917',
+  },
+  phone2: {
+    display: '(12) 99669-2001',
+    href: 'tel:+5512996692001',
   },
   // ⚠️ O número do WhatsApp é diferente do telefone exibido. Isso é
   // intencional: o WhatsApp foi atualizado em 2024 e o telefone não.
