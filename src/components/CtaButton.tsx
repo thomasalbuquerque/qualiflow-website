@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
-type Variant = 'primary' | 'outline' | 'light' | 'outline-light';
+export type Variant = 'primary' | 'outline' | 'light' | 'outline-light';
 
 const variants: Record<Variant, string> = {
   // Verde escurecido (#187a3e): texto branco com contraste 5,4:1.
@@ -13,6 +13,10 @@ const variants: Record<Variant, string> = {
   'outline-light':
     'border-2 border-white text-white hover:bg-white hover:text-brand-navy',
 };
+
+export function ctaButtonClasses(variant: Variant, className = '') {
+  return `inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-center font-heading text-base font-semibold transition-colors ${variants[variant]} ${className}`;
+}
 
 type Props = {
   href: string;
@@ -32,7 +36,7 @@ export function CtaButton({
   srLabel,
   className = '',
 }: Props) {
-  const classes = `inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-center font-heading text-base font-semibold transition-colors ${variants[variant]} ${className}`;
+  const classes = ctaButtonClasses(variant, className);
 
   const content = (
     <>

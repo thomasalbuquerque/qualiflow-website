@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { CopyEmailButton } from '@/components/CopyEmailButton';
 import { CtaBanner } from '@/components/CtaBanner';
 import { CtaButton } from '@/components/CtaButton';
 import { Hero } from '@/components/Hero';
@@ -130,13 +131,12 @@ export default function HomePage() {
         >
           WhatsApp
         </CtaButton>
-        <CtaButton
-          href={site.mailto}
+        <CopyEmailButton
           variant="outline-light"
           icon={<MailIcon className="size-5" />}
         >
           E-mail
-        </CtaButton>
+        </CopyEmailButton>
       </CtaBanner>
     </>
   );
