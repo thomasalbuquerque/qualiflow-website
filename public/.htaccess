@@ -1,0 +1,5 @@
+# Hospedagem Apache (Hostinger). O `next build` copia este arquivo para out/.
+ErrorDocument 404 /404.html
+
+# A Home antiga linkava para /analises-laboratoriais/.
+RedirectMatch 301 ^/analises-laboratoriais/?$ /analise-de-agua/
