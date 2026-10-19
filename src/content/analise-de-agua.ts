@@ -58,7 +58,6 @@ export const service: {
 } = {
   title: 'Serviço de Análise de Água Potável da QualiFlow',
   highlights: [
-    // ⚠️ O original dizia "Estamos há dois anos atuando..." (texto de 2021).
     'Estamos atuando na área de saneamento na região do Vale do Paraíba desde 2019, e por enquanto oferecemos o serviço de análise de potabilidade nesta região.',
     'Prestamos serviços de análises de parâmetros Químicos, Físico-Químicos e Microbiológicos de água potável, água de reuso e efluentes.',
   ],

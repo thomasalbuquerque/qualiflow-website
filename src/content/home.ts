@@ -9,7 +9,6 @@ export const homeMeta: PageMeta = {
 
 export const hero: { title: string; image: ImageData } = {
   title: 'Água tratada é saúde e bem-estar',
-  // ⚠️ A Home antiga usava nature-image.jpg, que não existe mais no backup.
   image: { src: '/images/hero-home.png', alt: '', width: 1280, height: 720 },
 };
 
@@ -82,7 +81,6 @@ export const models: { title: string; intro: string; cards: Card[] } = {
         width: 90,
         height: 90,
       },
-      // ⚠️ No original ia para /contato, que não existe mais. Usa o WhatsApp.
       cta: {
         label: 'Saiba mais',
         srLabel: 'sobre Consultoria',
@@ -98,7 +96,6 @@ export const models: { title: string; intro: string; cards: Card[] } = {
         width: 90,
         height: 90,
       },
-      // ⚠️ No original ia para /contato, que não existe mais. Usa o WhatsApp.
       cta: {
         label: 'Saiba mais',
         srLabel: 'sobre Assessoria',
@@ -123,8 +120,6 @@ export const models: { title: string; intro: string; cards: Card[] } = {
   ],
 };
 
-// TODO: confirmar com o cliente. Texto de um rascunho de outubro de 2020 que
-// nunca foi publicado.
 export const missionVisionValues = {
   title: 'Missão, Visão e Valores',
   items: [

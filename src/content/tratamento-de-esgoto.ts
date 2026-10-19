@@ -8,7 +8,6 @@ export const tratamentoDeEsgoto: ServicePageContent = {
   },
   title: 'Tratamento de Esgoto',
   intro: [
-    // ⚠️ Crase corrigida: o original dizia "Apoio à sistemas".
     'Apoio a sistemas de tratamento de esgotos dos mais variados portes e métodos de tratamento, como lodo ativado, anaeróbio e facultativo.',
     'Serviços que prestamos: Consultoria e acompanhamento na parte de Responsabilidade Técnica. Primeiramente efetuamos o Diagnóstico, depois apresentamos as Recomendações Gerenciais e Técnicas geradas pelas análises do mesmo. A seguir, executamos as ações recomendadas.',
     'Estes serviços são detalhados abaixo.',
@@ -32,13 +31,12 @@ export const tratamentoDeEsgoto: ServicePageContent = {
     {
       id: 'responsabilidade-tecnica',
       title: 'Responsabilidade Técnica',
-      // ⚠️ Vírgula entre sujeito e verbo removida ("esgotos, deve" → "esgotos deve").
+
       text: 'Todo sistema de tratamento de esgotos deve estar em conformidade com os padrões de lançamento da legislação aplicável e a classe do corpo receptor. Para isto é preciso o acompanhamento de um responsável técnico para liderar o cumprimento das exigências da licença de operação.',
     },
     {
       id: 'diagnostico',
       title: 'Diagnóstico',
-      // ⚠️ O original repetia o texto da página de água; adaptado para esgoto.
       text: 'O Diagnóstico é um serviço de auditoria do processo de tratamento de esgoto, para verificação da conformidade legal do sistema, levantamento dos riscos e demais oportunidades de melhorias.',
     },
     {
