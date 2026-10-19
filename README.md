@@ -75,20 +75,3 @@ As URLs terminam com barra (`/analise-de-agua/`), igual ao WordPress antigo, par
   ]
 }
 ```
-
-## Pendências para confirmar com o cliente
-
-Alterações feitas em relação ao site antigo (marcadas com ⚠️ no código):
-
-- ⚠️ "acessoria" foi corrigido para "assessoria" na descrição da empresa.
-- ⚠️ O WhatsApp é **(12) 98285-8917**, mas o telefone exibido continua **(12) 99669-2001**. Os dois foram mantidos como estavam. Confirmar se o telefone ainda está ativo.
-- ⚠️ A imagem `nature-image.jpg` da Home antiga não existe mais no backup. O hero usa `hero-home.png`.
-- ⚠️ Os botões "Saiba mais" de Consultoria e Assessoria iam para `/contato`, que não existe mais. Agora levam ao WhatsApp.
-- ⚠️ "Estamos há dois anos atuando..." virou "Estamos atuando ... desde 2019" (o texto era de 2021).
-- ⚠️ Crase corrigida em "Apoio a sistemas de tratamento de esgotos".
-- ⚠️ Vírgula removida em "Todo sistema de tratamento de esgotos deve estar...".
-- ⚠️ O texto do Diagnóstico da página de esgoto repetia o da página de água. Foi adaptado para esgoto.
-- ⚠️ A seção "Trabalhos realizados" foi removida, porque os números nunca foram preenchidos.
-- ⚠️ Logo do rodapé: foi usado `branco_transparente.png`. O `fundo_branco_maior.png` sugerido originalmente tem fundo branco opaco e apareceria como um quadrado branco sobre o rodapé.
-- ⚠️ Cores escurecidas para atender o contraste mínimo de acessibilidade (WCAG AA): texto `#808285` → `#5c5e61` e botões `#23a455` → `#187a3e`. O verde original continua nos detalhes e na faixa de chamada final.
-- TODO: Missão, Visão e Valores vêm de um rascunho de outubro de 2020 que nunca foi publicado.
