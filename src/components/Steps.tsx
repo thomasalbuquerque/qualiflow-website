@@ -1,21 +1,21 @@
-import type { Step } from "@/content/types";
+import type { Step } from '@/content/types';
 
 type Props = {
   steps: Step[];
   /** Nível do título de cada passo, conforme a hierarquia da página. */
-  headingLevel?: "h3" | "h4";
+  headingLevel?: 'h3' | 'h4';
 };
 
 const columns: Record<number, string> = {
-  3: "md:grid-cols-3",
-  4: "md:grid-cols-2 lg:grid-cols-4",
+  3: 'md:grid-cols-3',
+  4: 'md:grid-cols-2 lg:grid-cols-4',
 };
 
-export function Steps({ steps, headingLevel = "h3" }: Props) {
+export function Steps({ steps, headingLevel = 'h3' }: Props) {
   const Heading = headingLevel;
 
   return (
-    <ol className={`grid gap-6 ${columns[steps.length] ?? "md:grid-cols-3"}`}>
+    <ol className={`grid gap-6 ${columns[steps.length] ?? 'md:grid-cols-3'}`}>
       {steps.map((step, index) => (
         <li
           key={step.title}

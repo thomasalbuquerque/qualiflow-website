@@ -1,5 +1,5 @@
-import { site } from "@/config/site";
-import { WhatsAppIcon } from "./icons";
+import { site } from '@/config/site';
+import { WhatsAppIcon } from './icons';
 
 export function WhatsAppButton() {
   return (

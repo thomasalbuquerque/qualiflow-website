@@ -1,8 +1,8 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   // Site 100% estático: `next build` gera a pasta `out/`.
-  output: "export",
+  output: 'export',
   // Mantém as URLs do WordPress antigo (/analise-de-agua/) e gera pasta/index.html.
   trailingSlash: true,
   images: {
@@ -10,9 +10,9 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
+      '*.css': {
+        loaders: ['@tailwindcss/turbopack'],
+        as: '*.css',
       },
     },
   },

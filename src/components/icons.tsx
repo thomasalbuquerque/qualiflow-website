@@ -1,22 +1,22 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 // Ícones SVG inline. Decorativos por padrão (aria-hidden); quem usa dá o
 // nome acessível ao link ou botão que os contém.
 type IconProps = SVGProps<SVGSVGElement>;
 
 const base = {
-  "aria-hidden": true,
+  'aria-hidden': true,
   focusable: false,
-  viewBox: "0 0 24 24",
+  viewBox: '0 0 24 24',
 } as const;
 
 const stroke = {
   ...base,
-  fill: "none",
-  stroke: "currentColor",
+  fill: 'none',
+  stroke: 'currentColor',
   strokeWidth: 2,
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
 } as const;
 
 export function WhatsAppIcon(props: IconProps) {

@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import type { Card } from "@/content/types";
-import { CtaButton } from "./CtaButton";
-import { ArrowRightIcon } from "./icons";
+import Image from 'next/image';
+import Link from 'next/link';
+import type { Card } from '@/content/types';
+import { CtaButton } from './CtaButton';
+import { ArrowRightIcon } from './icons';
 
 export function ServiceCard({ card }: { card: Card }) {
   return (
@@ -30,7 +30,9 @@ export function ServiceCard({ card }: { card: Card }) {
                 className="inline-flex items-center gap-2 font-semibold text-brand-link underline-offset-4 hover:underline"
               >
                 {link.label}
-                {link.srLabel && <span className="sr-only"> {link.srLabel}</span>}
+                {link.srLabel && (
+                  <span className="sr-only"> {link.srLabel}</span>
+                )}
                 <ArrowRightIcon className="size-4" />
               </Link>
             </li>
@@ -40,7 +42,11 @@ export function ServiceCard({ card }: { card: Card }) {
 
       {card.cta && (
         <div className="mt-auto pt-6">
-          <CtaButton href={card.cta.href} variant="outline" srLabel={card.cta.srLabel}>
+          <CtaButton
+            href={card.cta.href}
+            variant="outline"
+            srLabel={card.cta.srLabel}
+          >
             {card.cta.label}
           </CtaButton>
         </div>

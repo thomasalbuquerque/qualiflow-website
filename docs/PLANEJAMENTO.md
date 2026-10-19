@@ -31,15 +31,15 @@ Estas decisões **substituem** o prompt onde houver conflito.
 9. **`bg-home.png` não será copiado.** É a mesma foto do hero (água escura com reflexos) em PNG de 1,4 MB. Use só `hero-home.png` (1280×720, 48 KB). Com o overlay escuro, a ampliação não é perceptível.
 10. **Ícones dos cards** são desenhos de traço **verde** com fundo transparente. Coloque-os sobre fundo claro (branco ou `brand-aqua` bem suave), nunca sobre fundo escuro ou verde. Exiba com 64 a 80 px.
 11. **Contraste (WCAG AA), valores calculados:**
-    | Combinação | Contraste | Decisão |
-    |---|---|---|
-    | `#808285` (texto do site antigo) sobre branco | 3,85:1 ❌ | Texto corpo passa a ser **`#5c5e61`** (6,5:1). Token `brand-gray`. |
-    | Branco sobre `#23a455` (botão verde) | 3,22:1 ❌ para texto normal | Botões com texto branco usam **`#187a3e`** (5,4:1), token `brand-green-dark`. O `#23a455` fica para detalhes, ícones, bordas, faixas e hover. |
-    | Faixa CTA verde da Home (`#23a455`) | 3,22:1 | Pode manter o fundo `#23a455` se o texto for branco **bold e ≥ 24 px** (texto grande, mínimo 3:1). Senão, use `brand-green-dark`. |
-    | Branco sobre `#01506E` (rodapé) | 8,85:1 ✅ | OK |
-    | `#00ff80` sobre `#01506E` (links do rodapé) | 6,58:1 ✅ | OK |
-    | `#4d60a5` sobre branco (links) | 5,95:1 ✅ | OK |
-    | `#000028` sobre branco ou `#a0e1d9` | 20:1 / 13,8:1 ✅ | OK |
+    | Combinação                                    | Contraste                   | Decisão                                                                                                                                       |
+    | --------------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `#808285` (texto do site antigo) sobre branco | 3,85:1 ❌                   | Texto corpo passa a ser **`#5c5e61`** (6,5:1). Token `brand-gray`.                                                                            |
+    | Branco sobre `#23a455` (botão verde)          | 3,22:1 ❌ para texto normal | Botões com texto branco usam **`#187a3e`** (5,4:1), token `brand-green-dark`. O `#23a455` fica para detalhes, ícones, bordas, faixas e hover. |
+    | Faixa CTA verde da Home (`#23a455`)           | 3,22:1                      | Pode manter o fundo `#23a455` se o texto for branco **bold e ≥ 24 px** (texto grande, mínimo 3:1). Senão, use `brand-green-dark`.             |
+    | Branco sobre `#01506E` (rodapé)               | 8,85:1 ✅                   | OK                                                                                                                                            |
+    | `#00ff80` sobre `#01506E` (links do rodapé)   | 6,58:1 ✅                   | OK                                                                                                                                            |
+    | `#4d60a5` sobre branco (links)                | 5,95:1 ✅                   | OK                                                                                                                                            |
+    | `#000028` sobre branco ou `#a0e1d9`           | 20:1 / 13,8:1 ✅            | OK                                                                                                                                            |
 12. **Ícones de redes sociais e do WhatsApp:** SVG inline em `src/components/icons.tsx`, sem biblioteca extra (o lucide removeu os ícones de marcas).
 13. **Favicon:** use as convenções de arquivo do App Router. Copie `cropped-favicon.png` para `src/app/icon.png` e `src/app/apple-icon.png`, e apague o `src/app/favicon.ico` do template.
 14. **Link do WhatsApp:** monte com `encodeURIComponent` a partir de número + mensagem em `site.ts`. O resultado precisa ser **idêntico** à URL do prompt (confira com um `console.log` ou teste rápido).

@@ -1,16 +1,17 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
+import Link from 'next/link';
+import type { ReactNode } from 'react';
 
-type Variant = "primary" | "outline" | "light" | "outline-light";
+type Variant = 'primary' | 'outline' | 'light' | 'outline-light';
 
 const variants: Record<Variant, string> = {
   // Verde escurecido (#187a3e): texto branco com contraste 5,4:1.
-  primary: "bg-brand-green-dark text-white hover:bg-brand-navy",
+  primary: 'bg-brand-green-dark text-white hover:bg-brand-navy',
   outline:
-    "border-2 border-brand-green-dark text-brand-green-dark hover:bg-brand-green-dark hover:text-white",
+    'border-2 border-brand-green-dark text-brand-green-dark hover:bg-brand-green-dark hover:text-white',
   // Para fundos escuros ou verdes.
-  light: "bg-white text-brand-navy hover:bg-brand-aqua",
-  "outline-light": "border-2 border-white text-white hover:bg-white hover:text-brand-navy",
+  light: 'bg-white text-brand-navy hover:bg-brand-aqua',
+  'outline-light':
+    'border-2 border-white text-white hover:bg-white hover:text-brand-navy',
 };
 
 type Props = {
@@ -26,10 +27,10 @@ type Props = {
 export function CtaButton({
   href,
   children,
-  variant = "primary",
+  variant = 'primary',
   icon,
   srLabel,
-  className = "",
+  className = '',
 }: Props) {
   const classes = `inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-center font-heading text-base font-semibold transition-colors ${variants[variant]} ${className}`;
 
@@ -43,16 +44,21 @@ export function CtaButton({
     </>
   );
 
-  if (href.startsWith("http")) {
+  if (href.startsWith('http')) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+      >
         {content}
       </a>
     );
   }
 
   // tel:, mailto: e âncoras na mesma página.
-  if (!href.startsWith("/")) {
+  if (!href.startsWith('/')) {
     return (
       <a href={href} className={classes}>
         {content}

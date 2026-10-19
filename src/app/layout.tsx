@@ -37,16 +37,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang='pt-BR' className={`${montserrat.variable} ${roboto.variable}`}>
-      <body className='flex min-h-screen flex-col'>
+    <html lang="pt-BR" className={`${montserrat.variable} ${roboto.variable}`}>
+      <body className="flex min-h-screen flex-col">
         <a
-          href='#conteudo'
-          className='sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-60 focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-brand-navy focus:shadow-lg'
+          href="#conteudo"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-60 focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-brand-navy focus:shadow-lg"
         >
           Pular para o conteúdo
         </a>
         <Header />
-        <main id='conteudo' tabIndex={-1} className='flex-1 focus:outline-none'>
+        <main id="conteudo" tabIndex={-1} className="flex-1 focus:outline-none">
           {children}
         </main>
         <Footer />

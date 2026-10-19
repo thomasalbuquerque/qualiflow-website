@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import type { ComponentType, SVGProps } from "react";
-import { site, type SocialName } from "@/config/site";
+import Image from 'next/image';
+import Link from 'next/link';
+import type { ComponentType, SVGProps } from 'react';
+import { site, type SocialName } from '@/config/site';
 import {
   FacebookIcon,
   InstagramIcon,
@@ -9,16 +9,19 @@ import {
   MailIcon,
   PhoneIcon,
   WhatsAppIcon,
-} from "./icons";
+} from './icons';
 
-const socialIcons: Record<SocialName, ComponentType<SVGProps<SVGSVGElement>>> = {
+const socialIcons: Record<
+  SocialName,
+  ComponentType<SVGProps<SVGSVGElement>>
+> = {
   Facebook: FacebookIcon,
   LinkedIn: LinkedInIcon,
   Instagram: InstagramIcon,
 };
 
 const linkClass =
-  "text-brand-footer-link underline-offset-4 hover:underline focus-visible:outline-white";
+  'text-brand-footer-link underline-offset-4 hover:underline focus-visible:outline-white';
 
 export function Footer() {
   return (
@@ -33,7 +36,9 @@ export function Footer() {
             height={914}
             className="h-20 w-auto"
           />
-          <p className="mt-5 text-sm leading-relaxed text-white/90">{site.description}</p>
+          <p className="mt-5 text-sm leading-relaxed text-white/90">
+            {site.description}
+          </p>
         </div>
 
         <div>
@@ -50,16 +55,16 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className='font-heading text-lg font-bold text-white'>Contato</h2>
-          <ul className='mt-4 space-y-3'>
-            <li className='flex items-center gap-3'>
-              <PhoneIcon className='size-5 shrink-0' />
+          <h2 className="font-heading text-lg font-bold text-white">Contato</h2>
+          <ul className="mt-4 space-y-3">
+            <li className="flex items-center gap-3">
+              <PhoneIcon className="size-5 shrink-0" />
               <a href={site.phone1.href} className={linkClass}>
                 {site.phone1.display}
               </a>
             </li>
-            <li className='flex items-center gap-3'>
-              <PhoneIcon className='size-5 shrink-0' />
+            <li className="flex items-center gap-3">
+              <PhoneIcon className="size-5 shrink-0" />
               <a href={site.phone2.href} className={linkClass}>
                 {site.phone2.display}
               </a>
@@ -86,7 +91,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="font-heading text-lg font-bold text-white">Redes sociais</h2>
+          <h2 className="font-heading text-lg font-bold text-white">
+            Redes sociais
+          </h2>
           <ul className="mt-4 flex gap-3">
             {site.social.map((item) => {
               const Icon = socialIcons[item.name];

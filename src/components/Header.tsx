@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import { site } from "@/config/site";
-import { CtaButton } from "./CtaButton";
-import { WhatsAppIcon } from "./icons";
-import { MobileMenu } from "./MobileMenu";
-import { NavLinks } from "./NavLinks";
+import Image from 'next/image';
+import Link from 'next/link';
+import { site } from '@/config/site';
+import { CtaButton } from './CtaButton';
+import { WhatsAppIcon } from './icons';
+import { MobileMenu } from './MobileMenu';
+import { NavLinks } from './NavLinks';
 
 export function Header() {
   return (
@@ -27,7 +27,10 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <CtaButton href={site.whatsapp.href} icon={<WhatsAppIcon className="size-5" />}>
+          <CtaButton
+            href={site.whatsapp.href}
+            icon={<WhatsAppIcon className="size-5" />}
+          >
             Fale conosco
           </CtaButton>
         </div>

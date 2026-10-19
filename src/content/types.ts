@@ -15,7 +15,11 @@ export type PageMeta = {
  * Texto com trechos destacados, sem Markdown nem HTML.
  * `strong` deixa em negrito; `highlight` também pinta com a cor da marca.
  */
-export type RichSegment = { text: string; strong?: boolean; highlight?: boolean };
+export type RichSegment = {
+  text: string;
+  strong?: boolean;
+  highlight?: boolean;
+};
 export type RichText = string | RichSegment[];
 
 export type LinkItem = {

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { site } from "@/config/site";
-import { CtaButton } from "./CtaButton";
-import { CloseIcon, MenuIcon, WhatsAppIcon } from "./icons";
-import { NavLinks } from "./NavLinks";
+import { useEffect, useRef, useState } from 'react';
+import { site } from '@/config/site';
+import { CtaButton } from './CtaButton';
+import { CloseIcon, MenuIcon, WhatsAppIcon } from './icons';
+import { NavLinks } from './NavLinks';
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -15,19 +15,19 @@ export function MobileMenu() {
 
     // Trava o scroll da página enquanto o menu está aberto.
     const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         setOpen(false);
         buttonRef.current?.focus();
       }
     }
-    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener('keydown', onKeyDown);
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener('keydown', onKeyDown);
     };
   }, [open]);
 
@@ -39,10 +39,14 @@ export function MobileMenu() {
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         aria-controls="menu-mobile"
-        aria-label={open ? "Fechar menu" : "Abrir menu"}
+        aria-label={open ? 'Fechar menu' : 'Abrir menu'}
         className="inline-flex size-12 items-center justify-center rounded-md text-brand-navy hover:bg-brand-aqua/30"
       >
-        {open ? <CloseIcon className="size-7" /> : <MenuIcon className="size-7" />}
+        {open ? (
+          <CloseIcon className="size-7" />
+        ) : (
+          <MenuIcon className="size-7" />
+        )}
       </button>
 
       <div

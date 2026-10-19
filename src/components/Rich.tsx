@@ -1,8 +1,8 @@
-import type { RichText } from "@/content/types";
+import type { RichText } from '@/content/types';
 
 // Renderiza RichText sem Markdown nem dangerouslySetInnerHTML.
 export function Rich({ text }: { text: RichText }) {
-  if (typeof text === "string") return text;
+  if (typeof text === 'string') return text;
 
   return text.map((segment, index) => {
     if (segment.highlight) {

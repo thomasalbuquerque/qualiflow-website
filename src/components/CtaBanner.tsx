@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
-import type { RichText } from "@/content/types";
-import { Rich } from "./Rich";
+import type { ReactNode } from 'react';
+import type { RichText } from '@/content/types';
+import { Rich } from './Rich';
 
 type Props = {
   text: RichText;
@@ -16,7 +16,9 @@ export function CtaBanner({ text, children }: Props) {
         <p className="max-w-3xl font-heading text-2xl leading-snug font-semibold text-white md:text-3xl">
           <Rich text={text} />
         </p>
-        <div className="flex shrink-0 flex-col gap-4 sm:flex-row">{children}</div>
+        <div className="flex shrink-0 flex-col gap-4 sm:flex-row">
+          {children}
+        </div>
       </div>
     </section>
   );

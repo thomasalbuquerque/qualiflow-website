@@ -6,8 +6,16 @@ export const analiseMeta: PageMeta = {
     'Análise de potabilidade de água com coleta no local e laudo por e-mail conforme a Portaria de Consolidação nº 5/2017 do Ministério da Saúde. Atendemos São José dos Campos, Taubaté, Jacareí e região.',
 };
 
-export const importance: { title: RichText; image: ImageData; paragraphs: string[] } = {
-  title: [{ text: 'Você sabe a ' }, { text: 'real importância', highlight: true }, { text: ' de beber água limpa?' }],
+export const importance: {
+  title: RichText;
+  image: ImageData;
+  paragraphs: string[];
+} = {
+  title: [
+    { text: 'Você sabe a ' },
+    { text: 'real importância', highlight: true },
+    { text: ' de beber água limpa?' },
+  ],
   image: {
     src: '/images/agua-limpa.jpg',
     alt: 'Criança bebendo um copo de água limpa',
@@ -34,7 +42,8 @@ export const scenarios = {
       text: 'Caso a água tenha parâmetros que fazem com que a água seja classificada como não potável, o responsável será esclarecido sobre quais problemas aquela água tem, e o que pode acontecer caso ela não seja tratada.',
     },
   ],
-  closing: 'E claro, a QualiFlow estará à disposição para oferecer a solução para o tratamento da água.',
+  closing:
+    'E claro, a QualiFlow estará à disposição para oferecer a solução para o tratamento da água.',
 };
 
 export const service: {

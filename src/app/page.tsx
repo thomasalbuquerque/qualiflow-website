@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import { CtaBanner } from "@/components/CtaBanner";
-import { CtaButton } from "@/components/CtaButton";
-import { Hero } from "@/components/Hero";
-import { MailIcon, WhatsAppIcon } from "@/components/icons";
-import { Section } from "@/components/Section";
-import { ServiceCard } from "@/components/ServiceCard";
-import { site } from "@/config/site";
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import { CtaBanner } from '@/components/CtaBanner';
+import { CtaButton } from '@/components/CtaButton';
+import { Hero } from '@/components/Hero';
+import { MailIcon, WhatsAppIcon } from '@/components/icons';
+import { Section } from '@/components/Section';
+import { ServiceCard } from '@/components/ServiceCard';
+import { site } from '@/config/site';
 import {
   about,
   finalCta,
@@ -15,13 +15,17 @@ import {
   missionVisionValues,
   models,
   services,
-} from "@/content/home";
+} from '@/content/home';
 
 export const metadata: Metadata = {
   title: { absolute: homeMeta.title },
   description: homeMeta.description,
-  alternates: { canonical: "/" },
-  openGraph: { title: homeMeta.title, description: homeMeta.description, url: "/" },
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: homeMeta.title,
+    description: homeMeta.description,
+    url: '/',
+  },
 };
 
 export default function HomePage() {
@@ -46,7 +50,10 @@ export default function HomePage() {
             <h2 id="sobre-titulo" className="text-3xl font-bold md:text-4xl">
               {about.title}
             </h2>
-            <span aria-hidden className="mt-4 block h-1 w-16 rounded-full bg-brand-green" />
+            <span
+              aria-hidden
+              className="mt-4 block h-1 w-16 rounded-full bg-brand-green"
+            />
             <div className="mt-6 space-y-4 text-lg leading-relaxed">
               {about.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -79,7 +86,12 @@ export default function HomePage() {
         </ul>
       </Section>
 
-      <Section id="modelos" title={models.title} intro={models.intro} align="center">
+      <Section
+        id="modelos"
+        title={models.title}
+        intro={models.intro}
+        align="center"
+      >
         <ul className="grid gap-6 md:grid-cols-3">
           {models.cards.map((card) => (
             <li key={card.title}>
@@ -97,8 +109,13 @@ export default function HomePage() {
       >
         <div className="grid gap-6 md:grid-cols-3">
           {missionVisionValues.items.map((item) => (
-            <div key={item.title} className="rounded-2xl bg-white p-6 shadow-sm md:p-8">
-              <h3 className="text-xl font-bold text-brand-green-dark">{item.title}</h3>
+            <div
+              key={item.title}
+              className="rounded-2xl bg-white p-6 shadow-sm md:p-8"
+            >
+              <h3 className="text-xl font-bold text-brand-green-dark">
+                {item.title}
+              </h3>
               <p className="mt-3 leading-relaxed">{item.text}</p>
             </div>
           ))}
@@ -113,7 +130,11 @@ export default function HomePage() {
         >
           WhatsApp
         </CtaButton>
-        <CtaButton href={site.mailto} variant="outline-light" icon={<MailIcon className="size-5" />}>
+        <CtaButton
+          href={site.mailto}
+          variant="outline-light"
+          icon={<MailIcon className="size-5" />}
+        >
           E-mail
         </CtaButton>
       </CtaBanner>

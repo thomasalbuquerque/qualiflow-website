@@ -21,7 +21,12 @@ export const about = {
   ],
 };
 
-export const services: { id: string; title: string; intro: string; cards: Card[] } = {
+export const services: {
+  id: string;
+  title: string;
+  intro: string;
+  cards: Card[];
+} = {
   id: 'servicos',
   title: 'Como podemos lhe ajudar?',
   intro: 'A QualiFlow pode te ajudar nos seguintes tópicos:',
@@ -29,7 +34,12 @@ export const services: { id: string; title: string; intro: string; cards: Card[]
     {
       title: 'Água e Esgoto',
       text: "Temos experiências diversas nas áreas de tratamento de água e esgoto, como construção e otimização de ETA's e ETE's, entre outros.",
-      icon: { src: '/images/icon-agua-esgoto.png', alt: '', width: 136, height: 140 },
+      icon: {
+        src: '/images/icon-agua-esgoto.png',
+        alt: '',
+        width: 136,
+        height: 140,
+      },
       links: [
         { label: 'Tratamento de Água', href: '/tratamento-de-agua/' },
         { label: 'Tratamento de Esgoto', href: '/tratamento-de-esgoto/' },
@@ -48,7 +58,12 @@ export const services: { id: string; title: string; intro: string; cards: Card[]
     {
       title: 'Análise de Água',
       text: 'Analisamos amostras de efluentes do cliente em nosso laboratório. Atualmente possuímos o serviço de análise de potabilidade de água.',
-      icon: { src: '/images/icon-analises.png', alt: '', width: 90, height: 90 },
+      icon: {
+        src: '/images/icon-analises.png',
+        alt: '',
+        width: 90,
+        height: 90,
+      },
       links: [{ label: 'Análise de Água', href: '/analise-de-agua/' }],
     },
   ],
@@ -61,22 +76,49 @@ export const models: { title: string; intro: string; cards: Card[] } = {
     {
       title: 'Consultoria',
       text: 'Prestamos serviço de consultoria sobre tratamento de água e esgoto, abastecimento de água, treinamentos e equipamentos.',
-      icon: { src: '/images/icon-consultoria.png', alt: '', width: 90, height: 90 },
+      icon: {
+        src: '/images/icon-consultoria.png',
+        alt: '',
+        width: 90,
+        height: 90,
+      },
       // ⚠️ No original ia para /contato, que não existe mais. Usa o WhatsApp.
-      cta: { label: 'Saiba mais', srLabel: 'sobre Consultoria', href: site.whatsapp.href },
+      cta: {
+        label: 'Saiba mais',
+        srLabel: 'sobre Consultoria',
+        href: site.whatsapp.href,
+      },
     },
     {
       title: 'Assessoria',
       text: 'Fazemos o diagnóstico do sistema atual do cliente, planejamento e execução de melhorias de acordo com a necessidade.',
-      icon: { src: '/images/icon-assessoria.png', alt: '', width: 90, height: 90 },
+      icon: {
+        src: '/images/icon-assessoria.png',
+        alt: '',
+        width: 90,
+        height: 90,
+      },
       // ⚠️ No original ia para /contato, que não existe mais. Usa o WhatsApp.
-      cta: { label: 'Saiba mais', srLabel: 'sobre Assessoria', href: site.whatsapp.href },
+      cta: {
+        label: 'Saiba mais',
+        srLabel: 'sobre Assessoria',
+        href: site.whatsapp.href,
+      },
     },
     {
       title: 'Análise de Água',
       text: 'Oferecemos o serviço de coleta e análise de potabilidade de água. Analisamos e enviamos o laudo ao cliente por email.',
-      icon: { src: '/images/icon-analise-agua.png', alt: '', width: 137, height: 140 },
-      cta: { label: 'Saiba mais', srLabel: 'sobre Análise de Água', href: '/analise-de-agua/' },
+      icon: {
+        src: '/images/icon-analise-agua.png',
+        alt: '',
+        width: 137,
+        height: 140,
+      },
+      cta: {
+        label: 'Saiba mais',
+        srLabel: 'sobre Análise de Água',
+        href: '/analise-de-agua/',
+      },
     },
   ],
 };

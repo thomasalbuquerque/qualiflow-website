@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { site } from "@/config/site";
-import type { ServicePageContent } from "@/content/types";
-import { CtaBanner } from "./CtaBanner";
-import { CtaButton } from "./CtaButton";
-import { WhatsAppIcon } from "./icons";
-import { Steps } from "./Steps";
+import Image from 'next/image';
+import { site } from '@/config/site';
+import type { ServicePageContent } from '@/content/types';
+import { CtaBanner } from './CtaBanner';
+import { CtaButton } from './CtaButton';
+import { WhatsAppIcon } from './icons';
+import { Steps } from './Steps';
 
 // Template compartilhado por Tratamento de Água e Tratamento de Esgoto.
 export function ServicePage({ content }: { content: ServicePageContent }) {
@@ -12,7 +12,10 @@ export function ServicePage({ content }: { content: ServicePageContent }) {
     <>
       <section className="bg-brand-aqua/25 pt-14 pb-10 md:pt-20">
         <div className="mx-auto max-w-6xl px-4">
-          <span aria-hidden className="mb-6 block h-1.5 w-20 rounded-full bg-brand-green" />
+          <span
+            aria-hidden
+            className="mb-6 block h-1.5 w-20 rounded-full bg-brand-green"
+          />
           <h1 className="text-4xl font-bold md:text-5xl">{content.title}</h1>
           <div className="mt-6 max-w-3xl space-y-4 text-lg leading-relaxed">
             {content.intro.map((paragraph) => (
@@ -60,8 +63,13 @@ export function ServicePage({ content }: { content: ServicePageContent }) {
             {detail.items && (
               <ul className="mt-5 space-y-4">
                 {detail.items.map((item) => (
-                  <li key={item.title} className="rounded-xl bg-slate-50 p-4 leading-relaxed">
-                    <strong className="font-heading font-bold text-brand-navy">{item.title}:</strong>{" "}
+                  <li
+                    key={item.title}
+                    className="rounded-xl bg-slate-50 p-4 leading-relaxed"
+                  >
+                    <strong className="font-heading font-bold text-brand-navy">
+                      {item.title}:
+                    </strong>{' '}
                     {item.text}
                   </li>
                 ))}
