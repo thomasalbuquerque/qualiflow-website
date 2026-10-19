@@ -4,11 +4,11 @@ Este é o roteiro de execução para construir o site inteiro em uma sessão. Si
 
 ## Fontes
 
-| O quê | Onde |
-|---|---|
+| O quê                                                         | Onde                                                                               |
+| ------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | Especificação completa (textos, cores, rotas, metas, imagens) | `/Users/thomas/Documents/projetos-pessoais/public_html/PROMPT-QUALIFLOW-NEXTJS.md` |
-| Imagens originais do WordPress | `/Users/thomas/Documents/projetos-pessoais/public_html/wp-content/uploads/` |
-| Pasta do projeto (raiz do Next.js) | `/Users/thomas/Documents/projetos-pessoais/public_html/qualiflow-website/` |
+| Imagens originais do WordPress                                | `/Users/thomas/Documents/projetos-pessoais/public_html/wp-content/uploads/`        |
+| Pasta do projeto (raiz do Next.js)                            | `/Users/thomas/Documents/projetos-pessoais/public_html/qualiflow-website/`         |
 
 O prompt é a **fonte da verdade para os textos**. Este plano não repete os textos: ele diz em que ordem construir e registra as decisões tomadas ao inspecionar os arquivos. Ao preencher `src/content/*.ts`, copie os textos do prompt **literalmente**, já com as correções marcadas com ⚠️ aplicadas.
 
@@ -20,7 +20,7 @@ Ignore o restante de `public_html/` (é o WordPress antigo). Não leia `wp-confi
 
 Estas decisões **substituem** o prompt onde houver conflito.
 
-1. **Versões:** Node 22.23, npm 10.9, Next.js **16.4.2**, React 19.3, Tailwind CSS **4.x**. Fixe `create-next-app@16.4.2`.
+1. **Versões:** Node 22.23, pnpm 11, Next.js **16.4.2**, React 19.3, Tailwind CSS **4.x**. Fixe `create-next-app@16.4.2`.
 2. **Tailwind v4 não tem `tailwind.config.ts`.** Os tokens de cor e fonte ficam em `src/app/globals.css`, dentro de `@theme`. O template do Next 16 processa o CSS com `@tailwindcss/turbopack` (regra em `next.config.ts`). Mantenha essa regra.
 3. **O template do Next 16 ativa `cacheComponents: true` e `partialPrefetching: true`** no `next.config.ts`. O site é 100% estático e não busca dados, então **remova as duas opções** para evitar conflito com `output: 'export'`.
 4. **O `create-next-app` gera um `AGENTS.md`** avisando que o Next 16 tem APIs diferentes das que você conhece. Siga o aviso: antes de escrever `next.config.ts`, metadata, `sitemap.ts`/`robots.ts` e `next/image`, consulte os guias em `node_modules/next/dist/docs/` (busque por "static exports", "metadata", "sitemap", "robots", "images").
@@ -28,7 +28,7 @@ Estas decisões **substituem** o prompt onde houver conflito.
 6. **Hospedagem:** o backup é de uma hospedagem compartilhada Apache (pasta `public_html/` e arquivo `monarx-analyzer.php`, típico da Hostinger). Por isso o redirect `/analises-laboratoriais` → `/analise-de-agua` vai em um **`public/.htaccess`**, que o export copia para `out/`. Documente também a alternativa para a Vercel (`redirects` no `vercel.json`).
 7. **Logo do rodapé, correção do prompt:** `2019/04/fundo_branco_maior.png` tem **fundo branco opaco** e ficaria como um quadrado branco sobre o petróleo `#01506E`. Use **`2019/04/branco_transparente.png`** (1086×914, logo toda branca com fundo transparente). Ela foi conferida renderizada sobre `#01506E`. Registre isso na lista ⚠️ do README.
 8. **Logo do header:** `logo-qualiflow-12-kb.png` (808×678) **não tem transparência** (o fundo é branco). Então o header precisa de fundo branco sólido, não transparente sobre o hero. Exiba a logo com cerca de 48 a 56 px de altura.
-9. **`bg-home.png` não será copiado.** É a mesma foto do hero (água escura com reflexos) em PNG de 1,4 MB. Use só `hero-home.jpg` (1280×720, 48 KB). Com o overlay escuro, a ampliação não é perceptível.
+9. **`bg-home.png` não será copiado.** É a mesma foto do hero (água escura com reflexos) em PNG de 1,4 MB. Use só `hero-home.png` (1280×720, 48 KB). Com o overlay escuro, a ampliação não é perceptível.
 10. **Ícones dos cards** são desenhos de traço **verde** com fundo transparente. Coloque-os sobre fundo claro (branco ou `brand-aqua` bem suave), nunca sobre fundo escuro ou verde. Exiba com 64 a 80 px.
 11. **Contraste (WCAG AA), valores calculados:**
     | Combinação | Contraste | Decisão |
@@ -105,8 +105,8 @@ qualiflow-website/
 
 ```bash
 cd /Users/thomas/Documents/projetos-pessoais/public_html/qualiflow-website
-npx -y create-next-app@16.4.2 . --ts --tailwind --eslint --app --src-dir \
-  --import-alias "@/*" --use-npm --no-agent-feedback --yes
+pnpm dlx create-next-app@16.4.2 . --ts --tailwind --eslint --app --src-dir \
+  --import-alias "@/*" --use-pnpm --no-agent-feedback --yes
 ```
 
 Depois:
@@ -115,7 +115,7 @@ Depois:
 2. Limpe o boilerplate: apague `public/*.svg` e `src/app/favicon.ico`, esvazie `src/app/page.tsx` e tire as fontes Geist do `layout.tsx`.
 3. Ajuste `package.json` → `"name": "qualiflow-website"`.
 
-**Pronto quando:** `npm run dev` sobe e mostra a página vazia sem erros.
+**Pronto quando:** `pnpm dev` sobe e mostra a página vazia sem erros.
 
 ## Etapa 2: `next.config.ts`
 
@@ -125,7 +125,7 @@ Consulte `node_modules/next/dist/docs/` sobre static exports. Depois:
 - Remova `cacheComponents` e `partialPrefetching`.
 - Mantenha o bloco `turbopack.rules` do Tailwind.
 
-**Pronto quando:** `npm run build` gera a pasta `out/` sem erros.
+**Pronto quando:** `pnpm build` gera a pasta `out/` sem erros.
 
 ## Etapa 3: Imagens
 
@@ -137,7 +137,7 @@ D=/Users/thomas/Documents/projetos-pessoais/public_html/qualiflow-website/public
 mkdir -p "$D"
 cp "$U/2021/03/logo-qualiflow-12-kb.png"                 "$D/logo.png"
 cp "$U/2019/04/branco_transparente.png"                  "$D/logo-footer.png"      # ⚠️ não usar fundo_branco_maior.png
-cp "$U/2021/02/capa-do-site_Easy-Resize.com_.jpg"        "$D/hero-home.jpg"
+cp "$U/2021/02/capa-do-site_Easy-Resize.com_.jpg"        "$D/hero-home.png"
 cp "$U/2020/07/agua-e-esgoto6.png"                       "$D/icon-agua-esgoto.png"
 cp "$U/2020/07/solucoes-alternativas.png"                "$D/icon-solucoes-alternativas.png"
 cp "$U/2020/07/analises2.png"                            "$D/icon-analises.png"
@@ -155,17 +155,17 @@ cp "$U/2019/09/cropped-favicon.png" /Users/thomas/Documents/projetos-pessoais/pu
 
 Os alts abaixo foram escritos depois de olhar cada imagem. Use-os em `src/content/`:
 
-| Arquivo | Conteúdo real | `alt` |
-|---|---|---|
-| `logo.png` | Logo colorida (gota azul em setas verdes circulares, "QualiFlow") | `QualiFlow` |
-| `logo-footer.png` | Mesma logo, toda branca | `QualiFlow` |
-| `hero-home.jpg` | Superfície de água escura com reflexos | decorativa: `alt=""` (é fundo) |
-| `agua-limpa.jpg` | Menina bebendo um copo de água, fundo de plantas | `Criança bebendo um copo de água limpa` |
-| `analise-laboratorio.jpg` | Mão enchendo tubo de amostra na torneira | `Coleta de amostra de água para análise de potabilidade` (texto do prompt) |
-| `bg-agua-potavel.jpg` | Mão com luva roxa segurando tubo de ensaio com água | `Técnico com luva segurando tubo de ensaio com amostra de água` (ou `""` se usada como fundo) |
-| `tratamento-agua.jpg` | Vista aérea de uma estação de tratamento de água (decantadores e filtros) | `Estação de tratamento de água com tanques de decantação e filtros` |
-| `tratamento-esgoto.jpg` | Tanque de aeração de uma estação de tratamento de esgoto | `Tanque de aeração em estação de tratamento de esgoto` |
-| ícones `icon-*.png` | Ícones de traço verde | `alt=""` (o título do card já descreve) |
+| Arquivo                   | Conteúdo real                                                             | `alt`                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `logo.png`                | Logo colorida (gota azul em setas verdes circulares, "QualiFlow")         | `QualiFlow`                                                                                   |
+| `logo-footer.png`         | Mesma logo, toda branca                                                   | `QualiFlow`                                                                                   |
+| `hero-home.png`           | Superfície de água escura com reflexos                                    | decorativa: `alt=""` (é fundo)                                                                |
+| `agua-limpa.jpg`          | Menina bebendo um copo de água, fundo de plantas                          | `Criança bebendo um copo de água limpa`                                                       |
+| `analise-laboratorio.jpg` | Mão enchendo tubo de amostra na torneira                                  | `Coleta de amostra de água para análise de potabilidade` (texto do prompt)                    |
+| `bg-agua-potavel.jpg`     | Mão com luva roxa segurando tubo de ensaio com água                       | `Técnico com luva segurando tubo de ensaio com amostra de água` (ou `""` se usada como fundo) |
+| `tratamento-agua.jpg`     | Vista aérea de uma estação de tratamento de água (decantadores e filtros) | `Estação de tratamento de água com tanques de decantação e filtros`                           |
+| `tratamento-esgoto.jpg`   | Tanque de aeração de uma estação de tratamento de esgoto                  | `Tanque de aeração em estação de tratamento de esgoto`                                        |
+| ícones `icon-*.png`       | Ícones de traço verde                                                     | `alt=""` (o título do card já descreve)                                                       |
 
 Lembre: `agua-esgoto6` = gotas; `solucoes-alternativas` = gota → reservatório; `analises2` = vidraria de laboratório; `consultoria2` = duas pessoas conversando; `assessoria2` = engrenagem; `analise-de-agua2` = béquer.
 
@@ -180,7 +180,7 @@ Lembre: `agua-esgoto6` = gotas; `solucoes-alternativas` = gota → reservatório
 2. **`layout.tsx`:**
    - `next/font/google`: `Montserrat` (pesos 600 e 700, `variable: "--font-montserrat"`) e `Roboto` (400, 500 e 700, `variable: "--font-roboto"`), ambos com `subsets: ["latin"]` e `display: "swap"`.
    - `<html lang="pt-BR">`.
-   - `metadata` padrão: `metadataBase: new URL(site.url)`, `title: { default, template: "%s | QualiFlow" }`, `description` = descrição curta, `openGraph` (locale `pt_BR`, siteName, imagem `/images/hero-home.jpg` ou logo).
+   - `metadata` padrão: `metadataBase: new URL(site.url)`, `title: { default, template: "%s | QualiFlow" }`, `description` = descrição curta, `openGraph` (locale `pt_BR`, siteName, imagem `/images/hero-home.png` ou logo).
    - Estrutura: link "Pular para o conteúdo" (sr-only, visível no foco), depois `<Header/>`, `<main id="conteudo">`, `<Footer/>` e `<WhatsAppButton/>`.
    - **Atenção ao title:** as metas do prompt já trazem "| QualiFlow". Nas páginas, use `title: { absolute: "..." }` com o texto exato do prompt, para não gerar "| QualiFlow | QualiFlow".
 
@@ -201,7 +201,7 @@ Lembre: `agua-esgoto6` = gotas; `solucoes-alternativas` = gota → reservatório
    - Esgoto: "Apoio a sistemas" sem crase, sem vírgula em "Todo sistema de tratamento de esgotos deve", Diagnóstico adaptado para esgoto.
    - Os dois arquivos de tratamento têm **o mesmo formato** (`ServicePageContent`).
 
-**Pronto quando:** `npx tsc --noEmit` passa e o link do WhatsApp gerado é igual ao do prompt.
+**Pronto quando:** `pnpm exec tsc --noEmit` passa e o link do WhatsApp gerado é igual ao do prompt.
 
 ## Etapa 6: Componentes globais
 
@@ -228,7 +228,7 @@ Lembre: `agua-esgoto6` = gotas; `solucoes-alternativas` = gota → reservatório
 
 Siga a seção "Página: Home" do prompt:
 
-1. `Hero` com `hero-home.jpg`, h1 "Água tratada é saúde e bem-estar" e botões WhatsApp (`light`) + "Nossos serviços" (âncora `#servicos`, `outline` claro).
+1. `Hero` com `hero-home.png`, h1 "Água tratada é saúde e bem-estar" e botões WhatsApp (`light`) + "Nossos serviços" (âncora `#servicos`, `outline` claro).
 2. "Sobre a QualiFlow": dois parágrafos. Pode ir ao lado da logo grande ou de um ícone decorativo.
 3. `#servicos` "Como podemos lhe ajudar?": 3 `ServiceCard`. O de Água e Esgoto tem dois links (Tratamento de Água / Tratamento de Esgoto), e o de Análise de Água tem link para `/analise-de-agua/`.
 4. "Modelos de serviço": 3 cards com o botão "Saiba mais" (WhatsApp, WhatsApp, `/analise-de-agua/`).
@@ -279,7 +279,7 @@ Siga a seção "Página: Home" do prompt:
 Substitua o README do template. Ele deve ter:
 
 1. Descrição do projeto e da stack (com versões).
-2. Comandos: `npm install`, `npm run dev`, `npm run build` (gera `out/`), `npm run lint` e como pré-visualizar o build (`npx serve out`).
+2. Comandos: `pnpm install`, `pnpm dev`, `pnpm build` (gera `out/`), `pnpm lint` e como pré-visualizar o build (`pnpm dlx serve out`).
 3. Onde editar: textos em `src/content/`, contatos em `src/config/site.ts`, cores em `src/app/globals.css` (`@theme`).
 4. **Publicação:**
    - Hospedagem Apache/Hostinger: enviar **o conteúdo de `out/`** (incluindo o `.htaccess` oculto) para o `public_html` do domínio, depois de fazer backup do WordPress. Nunca envie a pasta do código-fonte.
@@ -287,7 +287,7 @@ Substitua o README do template. Ele deve ter:
 5. **Pendências para confirmar com o cliente**, lista completa:
    - ⚠️ "acessoria" corrigido para "assessoria"
    - ⚠️ WhatsApp (12) 98285-8917 ≠ telefone exibido (12) 99669-2001
-   - ⚠️ `nature-image.jpg` não existe, então o hero usa `hero-home.jpg`
+   - ⚠️ `nature-image.jpg` não existe, então o hero usa `hero-home.png`
    - ⚠️ Botões de Consultoria/Assessoria levam ao WhatsApp em vez de `/contato`
    - ⚠️ "Estamos há dois anos" virou "desde 2019"
    - ⚠️ Crase em "Apoio a sistemas" (esgoto)
@@ -302,8 +302,8 @@ Substitua o README do template. Ele deve ter:
 
 ## Etapa 13: Verificação final
 
-1. `npm run lint` sem erros e `npm run build` sem erros nem warnings relevantes.
-2. `npx serve out` e testar no navegador (use a skill `run`, se disponível):
+1. `pnpm lint` sem erros e `pnpm build` sem erros nem warnings relevantes.
+2. `pnpm dlx serve out` e testar no navegador (use a skill `run`, se disponível):
    - as 4 páginas, nas larguras 375 px, 768 px e 1280 px, sem scroll horizontal
    - menu mobile abre e fecha, inclusive com `Esc`
    - âncora "Nossos serviços" rola até a seção sem ficar escondida atrás do header
