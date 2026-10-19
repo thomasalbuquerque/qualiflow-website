@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Site 100% estático: `next build` gera a pasta `out/`.
+  output: "export",
+  // Mantém as URLs do WordPress antigo (/analise-de-agua/) e gera pasta/index.html.
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
   turbopack: {
     rules: {
       "*.css": {
